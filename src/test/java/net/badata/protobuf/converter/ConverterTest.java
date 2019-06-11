@@ -2,6 +2,8 @@ package net.badata.protobuf.converter;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.DoubleValue;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.util.JsonFormat;
 import net.badata.protobuf.converter.domain.ConverterDomain;
 import net.badata.protobuf.converter.proto.ConverterProto;
 import org.junit.Assert;
@@ -131,6 +133,19 @@ public class ConverterTest {
     @Test
     public void testSetProtobufToDomain() {
         ConverterDomain.Test result = new ConverterDomain.Test().protobufToDomain(testProtobuf);
+    }
+
+    @Test
+    public void testJsonProtobufToDomain() {
+        //胎死腹中
+        JsonFormat.Printer printer = JsonFormat.printer();
+        String print = "";
+        try {
+            print = printer.print(testProtobuf);
+            System.out.println(print);
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
