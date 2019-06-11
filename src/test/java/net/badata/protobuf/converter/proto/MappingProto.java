@@ -2197,7 +2197,7 @@ public final class MappingProto {
     internal_static_net_badata_protobuf_converter_proto_MappingTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor,
-        new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "NestedValue", "StringListValue", "NestedListValue", });
+        new java.lang.String[] { "IntValue", "LongValue", "FloatValueConverterImpl", "DoubleValue", "BooleanValue", "StringValue", "NestedValue", "StringListValue", "NestedListValue", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -14,6 +14,7 @@ import net.badata.protobuf.converter.resolver.AnnotatedFieldResolverFactoryImpl;
 import net.badata.protobuf.converter.resolver.DefaultFieldResolverImpl;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.type.DateLongConverterImpl;
+import net.badata.protobuf.converter.type.DoubleValueConverterImpl;
 import net.badata.protobuf.converter.type.EnumStringConverter;
 import net.badata.protobuf.converter.type.SetListConverterImpl;
 
@@ -37,7 +38,7 @@ public class ConverterDomain {
 		private Integer intValue;
 		@ProtoField
 		private Float floatValue;
-		@ProtoField
+		@ProtoField(converter = DoubleValueConverterImpl.class)
 		private Double doubleValue;
 		@ProtoField(name = "booleanValue")
 		private Boolean boolValue;

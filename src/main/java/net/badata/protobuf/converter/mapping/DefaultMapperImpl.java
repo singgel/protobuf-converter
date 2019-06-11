@@ -37,6 +37,19 @@ public class DefaultMapperImpl implements Mapper {
 			}
 			return new MappingResult(MappingResult.Result.MAPPED, null, domain);
 		}
+		if (FieldUtils.isProtobufWrapper(fieldResolver.getProtobufType())) {
+			boolean hasFieldValue = true;
+			try {
+				String hasserName = FieldUtils.createProtobufHasserName(fieldResolver);
+				if (hasserName != null) {
+					hasFieldValue = hasFieldValue(hasserName, protobuf);
+				}
+			} catch (MappingException ignored) {} // not `has` method, continue
+			if (hasFieldValue) {
+				return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
+			}
+			return new MappingResult(MappingResult.Result.MAPPED, null, domain);
+		}
 		if (FieldUtils.isCollectionType(fieldResolver.getField())) {
 			return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, protobufFieldValue, domain);
 		}

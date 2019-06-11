@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package net.badata.protobuf.converter.proto;
 
+import "google/protobuf/wrappers.proto";
+
 option java_package = "net.badata.protobuf.converter.proto";
 option java_outer_classname = "ConverterProto";
 
@@ -29,7 +31,7 @@ message ConverterTest {
 	int32 intValue = 1;
 	int64 longValue = 2;
 	float floatValue = 3;
-	double doubleValue = 4;
+    google.protobuf.DoubleValue doubleValue = 4;
 	bool booleanValue = 5;
 	string stringValue = 6;
 	PrimitiveTest primitiveValue = 7;

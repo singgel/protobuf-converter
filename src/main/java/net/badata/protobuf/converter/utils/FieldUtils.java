@@ -22,6 +22,11 @@ public final class FieldUtils {
 	private static final String BOOLEAN_GETTER_PREFIX = "is";
 	private static final String PROTOBUF_LIST_GETTER_POSTFIX = "List";
 	private static final String PROTOBUF_LIST_SETTER_PREFIX = "addAll";
+	private static final String PROTOBUF_WRAPPERS_PACKAGE = "com.google.protobuf";
+
+	public static boolean isProtobufWrapper(final Class<?> type) {
+		return type.toString().contains(PROTOBUF_WRAPPERS_PACKAGE);
+	}
 
 	/**
 	 * Check whether field has own mapper.
